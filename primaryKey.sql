@@ -3,14 +3,14 @@ DROP TABLE IF EXISTS "messages";
 CREATE TABLE IF NOT EXISTS "messages"(
   "id" bigserial PRIMARY KEY,
   "body" varchar(2048) NOT NULL CHECK("body"!=''),
-  "author" varchar(32) NOT NULL CHECK("author"!=''),
+  "autorId" int REFERENCES "users"("id"),
   "createdAt" timestamp NOT NULL DEFAULT current_timestamp,
   "isRead" boolean DEFAULT false
 );
 
-INSERT INTO "messages"("body", "author") 
+INSERT INTO "messages"("body", "autorId") 
 VALUES 
-('hi!', 'Tom'),
-('hi!', 'Tom'),
-(')))', 'Alex');
+('hi!', 3),
+('hi!', 1),
+(')))', 2);
 
