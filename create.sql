@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS "users";
 
 CREATE TABLE IF NOT EXISTS "users"(
+  "id" serial PRIMARY KEY,
   "firstName" varchar(32) NOT NULL CHECK("firstName"!=''),
   "lastName" varchar(32) NOT NULL CHECK("lastName"!=''),
   "email" varchar(256) NOT NULL CHECK("email"!='') UNIQUE,
@@ -10,10 +11,7 @@ CREATE TABLE IF NOT EXISTS "users"(
   "isMale" boolean NOT NULL DEFAULT true
 );
 
-INSERT INTO "users"("email","firstName","lastName", "birthday", "height", "weight") 
-VALUES('ozq@gmail.com','456','Ozzi','2024-07-16',190, 90.4);
-
-INSERT INTO "users" 
+INSERT INTO "users"("firstName","lastName","email", "height", "weight", "birthday", "isMale")
 VALUES
 ('Brad', 'Pitt', 'pitt@gmail.com', 188, 82.53, '1963-12-18' ,true),
 ('Anna', 'Pitt', 'pitt2@gmail.com', 168, 62.53, '2003-12-18' ,false),
